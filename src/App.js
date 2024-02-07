@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import MainWeatherWindow from './components/MainWeatherWindow.js';
-import CityInput from './components/CityInput.js';
-import WeatherBox from './components/WeatherBox.js';
+import MainWeatherWindow from './components/MainWeatherWindow';
+import CityInput from './components/CityInput';
+import WeatherBox from './components/WeatherBox';
 
 class App extends React.Component {
   state = {
