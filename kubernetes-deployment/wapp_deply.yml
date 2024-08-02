@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata: 
+  name: wapp-deployment
+  labels:
+    app: weatherooo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: weatherooo
+  template:
+    metadata:
+      labels: 
+        app: weatherooo
+    spec:
+      containers:
+      - name: weatherooo 
+        image: r0han0301/weatherooo:updated
+        ports: 
+        - containerPort: 3000
+        
+---
+apiVersion: v1
+kind: Service 
+metadata:
+  name: weatheroo-service
+spec:
+  selector:
+    app: weatherooo
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+      nodePort: 30001
